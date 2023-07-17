@@ -29,13 +29,5 @@ RUN npm install -g yarn
 # Instala as dependências do projeto JavaScript
 RUN yarn install --check-files
 
-# Instala a gem Mailcatcher
-RUN gem install mailcatcher --no-document
-
-# Cria e migra o banco de dados
-RUN bundle exec rails db:create && \
-    bundle exec rails db:migrate
-
-
 # Define o comando a ser executado quando o container for iniciado
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
