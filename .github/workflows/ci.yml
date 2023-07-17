@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run lint
-        run: docker-compose run app bash -c "gem install rubocop; rubocop --fail-level F"
+        run: docker-compose run decidim bash -c "gem install rubocop; rubocop --fail-level F"
 
   test:
     runs-on: ubuntu-latest
@@ -30,4 +30,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run test
-        run: docker-compose run app bash -c "rails db:reset; rspec"
+        run: docker-compose run decidim bash -c "rails db:reset; rspec"
