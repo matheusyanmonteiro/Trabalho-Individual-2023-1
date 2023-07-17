@@ -15,8 +15,8 @@
     "@decidim/dev": "^0.27.2",
     "@decidim/eslint-config": "^0.27.2",
     "@decidim/stylelint-config": "^0.27.2",
-    "@webpack-cli/serve": "^1.6.0",
-    "webpack-dev-server": "^4.4.0"
+    "@webpack-cli/serve": "^2.0.5",
+    "webpack-dev-server": "^4.15.1"
   },
   "version": "0.1.0",
   "babel": {
