@@ -1,0 +1,33 @@
+name: Decidim CI 
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build application
+        run: docker-compose up -d
+
+  lint:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run lint
+        run: docker-compose run app bash -c "gem install rubocop; rubocop --fail-level F"
+
+  test:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run test
+        run: docker-compose run app bash -c "rails db:reset; rspec"
