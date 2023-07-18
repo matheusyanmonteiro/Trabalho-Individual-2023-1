@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    uses: mathesyanmonteiro/Trabalho-Individual-2023-1/.github/workflows/ci.yml@main
+    uses: matheusyanmonteiro/Trabalho-Individual-2023-1/.github/workflows/ci.yml@main
   deploy:
     name: PUSH docker image
     runs-on: ubuntu-latest
